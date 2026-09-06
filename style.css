@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #05050a;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    height: 200vh;
+    perspective: 1000px;
+    }
+    .bg-glow{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(5, 5, 10, 0) 70%);
+        z-index: -2;
+        pointer-events: none;
+    }
+    #particle-canvas{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+    }
+    .hero-text{
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 10;
+        pointer-events: none;
+        letter-spacing: 2px;
+    }
+    .hero-text h1{
+        font-size: 2.5rem;
+        font-weight: 300;
+        background: linear-gradient(135deg, #fff 30%, #818cf8 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        }
+        .hero-text p{
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .scene-container{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            pointer-events: none;
+        }
+        .viewport-3d{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+        .geo-shape{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-style: preserve-3d;
+        }
+        .cube{
+            width: 160px;
+            height: 160px;
+            margin: -80px 0 0 -80px;
+            animation: rotateCube 18s infinite linear;
+        }
+        .cube-face{
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(129, 140, 248, 0.4);
+            box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(4px);
+        }
+        .cube-face-front{
+            transform: translateZ(80px);
+        }
+        .cube-face-back{
+            transform: rotateY(180deg) translateZ(80px);
+        }
+        .cube-face-right{
+            transform: rotateY(90deg) translateZ(80px);
+        }
+        .cube-face-left{
+            transform: rotateY(-90deg) translateZ(80px);
+        }
+        .cube-face-top{
+            transform: rotateX(90deg) translateZ(80px);
+        }
+        .cube-face-bottom{
+            transform: rotateX(-90deg) translateZ(80px);
+        }
+        .pyramid{
+            width: 100px;
+            height: 100px;
+            margin: -50px 0 0 -50px;
+            animation: rotatePyramid 12s infinite reverse linear;
+        }
+        .p-face{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 90px solid rgba(236, 72, 153, 0.25);
+            filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.3));
+        }
+        .p-front{
+            transform: rotateY(0deg) translateZ(35px) rotateX(30deg);
+        }
+        .p-right{
+            transform: rotateY(90deg) translateZ(35px) rotateX(30deg);
+        }
+        .p-back{
+            transform: rotateY(180deg) translateZ(35px) rotateX(30deg);
+        }
+        .p-left{
+            transform: rotateY(270deg) translateZ(35px) rotateX(30deg);
+        }
+        .orbit-ring{
+            width: 280px;
+            height: 280px;
+            margin: -140px 0 0 -140px;
+            border: 2px dashed rgba(56, 189, 248, 0.3);
+            border-radius: 50%;
+            animation: spinRing 25s infinite linear;
+        }
+        @keyframes rotateCube{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        @keyframes rotatePyramid{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg) scale(1.2);
+            }
+            50%{
+                transform: rotateX(180deg) rotateY(180deg) scale(0.9);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg) scale(1.2);
+            }
+        }
+        @keyframes spinRing{
+            0%{
+                transform: rotateX(70deg) rotateZ(0deg);
+            }
+            100%{
+                transform: rotateX(70deg) rotateZ(360deg);
+            }
+        }
+        .scroll-cue{
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #64748b;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: pulseFade 2s infinite ease-in-out;
+        }
+        @keyframes pulseFade{
+            0%,
+            100%{
+                opacity: 0.4;
+            }
+            50%{
+                opacity: 1;
+            }
+        }

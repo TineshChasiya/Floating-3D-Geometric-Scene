@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Floating 3D Geometric Scene</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bg-glow"></div>
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-text">
+            <h1>Spatial Geometry</h1>
+            <p>Interactive 3D CSS & JS Experience</p>
+        </div>
+        <div class="scene-container">
+            <div class="viewport-3d" id="viewport">
+                <div class="geo-shape orbit-ring"></div>
+                <div class="geo-shape cube">
+                    <div class="cube-face cube-face-front"></div>
+                    <div class="cube-face cube-face-back"></div>
+                    <div class="cube-face cube-face-right"></div>
+                    <div class="cube-face cube-face-left"></div>
+                    <div class="cube-face cube-face-top"></div>
+                    <div class="cube-face cube-face-bottom"></div>
+                </div>
+                <div class="geo-shape pyramid">
+                    <div class="p-face p-front"></div>
+                    <div class="p-face p-right"></div>
+                    <div class="p-face p-back"></div>
+                    <div class="p-face p-left"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-cue">Scroll to Depth-Shift</div>
+        <script src="script.js"></script>
+    </body>
+    </html>
